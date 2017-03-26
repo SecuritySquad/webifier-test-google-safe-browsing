@@ -3,7 +3,6 @@
 import json
 import requests
 import subprocess
-import pprint
 import sys
 
 
@@ -50,7 +49,7 @@ def format_result(response, url, links_length):
             }
         }
 
-    matches = (match['threat']['url'] for match in response['matches'])
+    matches = list(match['threat']['url'] for match in response['matches'])
     if url in matches or len(matches)/links_length > 0.4:
         result = "MALICIOUS"
     else:
