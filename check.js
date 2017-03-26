@@ -16,6 +16,10 @@ if (!Date.prototype.toISOString) {
 var page = require('webpage').create(),
     system = require('system');
 
+page.onError = function(msg, trace) {
+    return true;
+};
+
 if (system.args.length === 1) {
     console.log('Usage: check.js <URL>');
     phantom.exit(1);
