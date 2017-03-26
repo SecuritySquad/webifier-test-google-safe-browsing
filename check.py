@@ -70,6 +70,7 @@ if __name__ == "__main__":
         url = sys.argv[2]
         api_key = sys.argv[3]
         links = get_links(url)
+        links.insert(0, url)
         print links
         response = get_link_results(links, api_key)
         print response
